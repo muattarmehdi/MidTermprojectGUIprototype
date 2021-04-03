@@ -122,7 +122,8 @@ public class studentOperations extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewResultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewResultButtonActionPerformed
-        // TODO add your handling code here:
+        resultOfProjects result = new resultOfProjects();
+        result.setVisible(true);
     }//GEN-LAST:event_viewResultButtonActionPerformed
 
     /**
