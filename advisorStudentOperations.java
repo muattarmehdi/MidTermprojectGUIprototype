@@ -62,8 +62,18 @@ public class advisorStudentOperations extends javax.swing.JFrame {
         });
 
         editButton.setText("EDIT");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         viewButton.setText("VIEW");
+        viewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
         jLabel1.setText("Advisor Student Operations");
@@ -126,6 +136,16 @@ public class advisorStudentOperations extends javax.swing.JFrame {
         deleteGroup del = new deleteGroup();
         del.setVisible(true);
     }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        editGroup e = new editGroup();
+        e.setVisible(true);
+    }//GEN-LAST:event_editButtonActionPerformed
+
+    private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
+        viewGroups view = new viewGroups();
+        view.setVisible(true);
+    }//GEN-LAST:event_viewButtonActionPerformed
 
     /**
      * @param args the command line arguments

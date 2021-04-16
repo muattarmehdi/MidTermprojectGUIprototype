@@ -44,6 +44,11 @@ public class advisorOptions extends javax.swing.JFrame {
         });
 
         Project.setText("Project");
+        Project.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProjectActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,6 +80,11 @@ public class advisorOptions extends javax.swing.JFrame {
         advisorStudentOperations student = new advisorStudentOperations();
         student.setVisible(true);
     }//GEN-LAST:event_StudentActionPerformed
+
+    private void ProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectActionPerformed
+        advisorProjectOperations project = new advisorProjectOperations();
+        project.setVisible(true);
+    }//GEN-LAST:event_ProjectActionPerformed
 
     /**
      * @param args the command line arguments
