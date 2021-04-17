@@ -42,7 +42,6 @@
                   <Component id="Student" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="Project" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

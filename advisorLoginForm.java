@@ -7,8 +7,9 @@ package guiprototypemidtermproject;
 
 /**
  *
- * @author inn
+ * @author Muattar Mehdi
  */
+import javax.swing.*;
 public class advisorLoginForm extends javax.swing.JFrame {
 
     /**
@@ -45,7 +46,6 @@ public class advisorLoginForm extends javax.swing.JFrame {
 
         UsernameLabel.setText("Username");
 
-        jTextField1.setText("jTextField1");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -53,8 +53,6 @@ public class advisorLoginForm extends javax.swing.JFrame {
         });
 
         passwordLabel.setText("Password");
-
-        jTextField2.setText("jTextField2");
 
         jButton1.setText("Continue");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -68,30 +66,26 @@ public class advisorLoginForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(UsernameLabel)
-                                    .addComponent(passwordLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                                    .addComponent(jTextField2)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(jButton1)))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(jLabel1))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(jLabel2)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(UsernameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(passwordLabel))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(jButton1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
@@ -103,9 +97,9 @@ public class advisorLoginForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabel)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(41, 41, 41))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -116,8 +110,33 @@ public class advisorLoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        advisorOptions options = new advisorOptions();
-        options.setVisible(true);
+        advisor a = new advisor();
+        a.loadAdvisorCredentials("advisorCredential.txt");
+        boolean flag = false;
+        for(int i = 0 ; i < a.advisorinformation.size(); i++)
+        {
+            
+            for(int j = 0;j < a.advisorinformation.get(i).getAdvisorUsername().length(); j++)
+            {    
+                if(a.advisorinformation.get(i).getAdvisorUsername().charAt(j) != jTextField1.getText().charAt(j))
+                {
+                    flag = false;
+                    JOptionPane.showMessageDialog(null,"You have entered wrong credentials");
+                    break;
+                }
+                else
+                {
+                    flag = true;
+                }
+            }
+        
+        }
+        
+        if(flag == true)
+        {
+            advisorOptions options = new advisorOptions();
+            options.setVisible(true);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

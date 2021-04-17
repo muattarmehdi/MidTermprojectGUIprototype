@@ -5,6 +5,8 @@
  */
 package guiprototypemidtermproject;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author inn
@@ -38,6 +40,11 @@ public class deleteGroup extends javax.swing.JFrame {
         jLabel1.setText("Delete a Student Group");
 
         groupnumberInput.setText("jTextField1");
+        groupnumberInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupnumberInputActionPerformed(evt);
+            }
+        });
 
         groupnumberLabel.setText("Group Number");
 
@@ -78,6 +85,22 @@ public class deleteGroup extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void groupnumberInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupnumberInputActionPerformed
+        // TODO add your handling code here:
+        group g = new group();
+        g.loadStudentCredentials("group.txt");
+        for(int i = 0 ; i < g.groups.size() ; i++)
+        {
+            if(g.groups.get(i).getGroupId() == groupnumberInput.getText())
+            {
+                g.groups.remove(i);
+                JOptionPane.showMessageDialog(null, "This group has been deleted successfully");
+                break;
+            }
+        }
+        g.saveGroupData("group.txt");
+    }//GEN-LAST:event_groupnumberInputActionPerformed
 
     /**
      * @param args the command line arguments
