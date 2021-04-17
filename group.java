@@ -10,8 +10,15 @@ package guiprototypemidtermproject;
  * @author Muattar Mehdi
  */
 import java.util.*;
+import java.io.*;
+import javax.swing.*;        
+
 public class group 
 {
+    
+    project p = new project(" "," ");
+    advisor a = new advisor();
+    
     private String groupId;
     public String groupProject;
     public String getGroupId() {
@@ -32,14 +39,20 @@ public class group
         this.groupName = groupName;
     }
     
-    public void addGroup(String id, String Name)
+    public void addGroup(String id, String Name, String aName, String p)
     {
-        groupId = id;
-        groupName = Name;
+        group gg = new group();
+        gg.groupId = id;
+        gg.groupName = Name;
+        gg.a.setAdvisorName(aName);
+        gg.groupProject = p;
+        
+        groups.add(gg);
+        
     }
     
     public ArrayList<group> groups = new ArrayList<>();
-    project p = new project(" "," ");
+    
     public boolean deleteGroup(String number)
     {
         boolean flag = false;
@@ -68,7 +81,7 @@ public class group
     
         return flag;
     }
-    public boolean editGroup(String number, String project, String name, String id)
+    public boolean editGroup(String number, String project, String name, String id, String advisorName)
     {
         boolean flag = false;
         
@@ -93,10 +106,66 @@ public class group
             groups.get(i).groupId = id;
             groups.get(i).groupName = name;
             groups.get(i).groupProject = project;
+            groups.get(i).a.setAdvisorName(advisorName);
         }
     
         return flag;
     }
+        public void loadStudentCredentials(String filename)
+    {
+        try
+        {
+            FileReader file = new FileReader(filename);
+            BufferedReader reader = new BufferedReader(file);
             
-    
+            String line = reader.readLine();
+            do
+            {
+                group loadGroup = new group();
+                String [] load = line.split(",");
+                loadGroup.groupId = load[0];
+                loadGroup.groupName = load[1];
+                loadGroup.groupProject = load[2];
+                loadGroup.a.setAdvisorName(load[3]);
+                
+                groups.add(loadGroup);
+            }while(line != null);
+            reader.close();
+            file.close();
+        }
+        catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(null,"Unable to load file");
+        }
+        
+    }
+        public boolean saveGroupData(String filename)    
+        {
+            boolean flag = false;
+            try
+            {
+                FileWriter file = new FileWriter(filename);
+                BufferedWriter writer = new BufferedWriter(file);
+                
+                for(int i = 0 ; i < groups.size() ; i++)
+                {
+                    writer.write(groups.get(i).groupId + ","
+                                + groups.get(i).groupName + ","
+                                + groups.get(i).groupProject + ","
+                                + groups.get(i).a.getAdvisorName());
+                
+                }
+                writer.flush();
+                writer.close();
+                file.close();
+                flag = true;
+            }
+            catch(Exception ex)
+            {
+                JOptionPane.showMessageDialog(null, "Unable to write on file");
+                flag = false;
+            }
+        
+            return flag;
+        }
 }

@@ -81,7 +81,9 @@ public class student extends group
             
             
             }
-            
+            buffer.flush();
+            buffer.close();
+            file.close();
         
         }
         catch(Exception ex)
@@ -94,6 +96,92 @@ public class student extends group
         return flag;
     }
    
+    public void loadStudents(String filename)
+    {
+        try
+        {
+            FileReader file = new FileReader(filename);
+            BufferedReader reader = new BufferedReader(file);
+            
+            String line = reader.readLine();
+            
+            do
+            {
+                String[] load = line.split(",");
+                student loadStudent = new student();
+                loadStudent.setGroupId(load[0]);
+                loadStudent.setStudentName(load[1]);
+                loadStudent.setStudentId(load[2]);
+                loadStudent.setStudentAddress(load[3]);
+                loadStudent.groupProject = load[4];
+                
+                studentList.add(loadStudent);
+            }while(line != null);
+            
+            reader.close();
+            file.close();
+        }
+        catch(Exception ex)
+        {
+        
+            JOptionPane.showMessageDialog(null," Unable to load data from file");
+        
+        }
     
+    }
+    public boolean saveStudentCredentials(String filename)
+    {
+        boolean flag = false;
+        
+        try
+        {
+            FileWriter file = new FileWriter(filename);
+            BufferedWriter buffer = new BufferedWriter(file);
+    
+            for(int i = 0; i < studentList.size(); i++)
+            {
+                buffer.write(studentList.get(i).studentEmail + ","  
+                            + studentList.get(i).studentPassword);
+            }
+            buffer.flush();
+            buffer.close();
+            file.close();
+            flag = true;
+        }
+        catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(null,"Unable to save file");
+            flag = false;
+        }
+        return flag;
+    }
+    public void loadStudentCredentials(String filename)
+    {
+        try
+        {
+            FileReader file = new FileReader(filename);
+            BufferedReader reader = new BufferedReader(file);
+            
+            String line = reader.readLine();
+            do
+            {
+                student loadS = new student();
+                String [] load = line.split(",");
+                loadS.studentEmail = load[0];
+                loadS.studentPassword = load[1];
+            
+              
+            }while(line != null);
+            reader.close();
+            file.close();
+        }
+        catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(null,"Unable to load file");
+        }
+    
+    }
+
+
 
 }

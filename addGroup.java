@@ -9,6 +9,7 @@ package guiprototypemidtermproject;
  *
  * @author inn
  */
+import javax.swing.*;
 public class addGroup extends javax.swing.JFrame {
 
     /**
@@ -32,11 +33,11 @@ public class addGroup extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         groupNameinput = new javax.swing.JTextField();
-        idInput = new javax.swing.JTextField();
+        advisorInput = new javax.swing.JTextField();
         groupnumberinput1 = new javax.swing.JTextField();
-        Projects = new javax.swing.JComboBox<>();
         projectLabel = new javax.swing.JLabel();
         Addbutton = new javax.swing.JButton();
+        projectInput = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,39 +48,40 @@ public class addGroup extends javax.swing.JFrame {
 
         jLabel3.setText("Group number");
 
-        jLabel4.setText("IDs of members");
+        jLabel4.setText("Advisor Name");
 
-        groupNameinput.setText("Name");
         groupNameinput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupNameinputActionPerformed(evt);
             }
         });
 
-        idInput.setText("IDs");
-        idInput.addActionListener(new java.awt.event.ActionListener() {
+        advisorInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idInputActionPerformed(evt);
+                advisorInputActionPerformed(evt);
             }
         });
 
-        groupnumberinput1.setText("number");
         groupnumberinput1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupnumberinput1ActionPerformed(evt);
             }
         });
 
-        Projects.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Projects.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProjectsActionPerformed(evt);
-            }
-        });
-
         projectLabel.setText("Projects");
 
         Addbutton.setText("Add");
+        Addbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddbuttonActionPerformed(evt);
+            }
+        });
+
+        projectInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projectInputActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,26 +89,25 @@ public class addGroup extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(projectLabel)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2))
+                .addGap(62, 62, 62)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(groupNameinput)
+                    .addComponent(advisorInput)
+                    .addComponent(groupnumberinput1)
+                    .addComponent(projectInput)))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel2)
-                                    .addComponent(projectLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Projects, 0, 119, Short.MAX_VALUE)
-                                    .addComponent(groupNameinput)
-                                    .addComponent(idInput)
-                                    .addComponent(groupnumberinput1)))))
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(Addbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                        .addGap(113, 113, 113)
+                        .addComponent(Addbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,14 +124,14 @@ public class addGroup extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(idInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(advisorInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Projects, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(projectLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(Addbutton)
-                .addGap(39, 39, 39))
+                    .addComponent(projectLabel)
+                    .addComponent(projectInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(Addbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -140,17 +141,25 @@ public class addGroup extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_groupNameinputActionPerformed
 
-    private void idInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idInputActionPerformed
+    private void advisorInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advisorInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idInputActionPerformed
+
+    }//GEN-LAST:event_advisorInputActionPerformed
 
     private void groupnumberinput1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupnumberinput1ActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_groupnumberinput1ActionPerformed
 
-    private void ProjectsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectsActionPerformed
+    private void projectInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ProjectsActionPerformed
+    }//GEN-LAST:event_projectInputActionPerformed
+
+    private void AddbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddbuttonActionPerformed
+        // TODO add your handling code here:
+        group g = new group();
+        g.addGroup(groupnumberinput1.getText(), groupNameinput.getText(), advisorInput.getText(), projectInput.getText());
+        g.saveGroupData("groups.txt");
+    }//GEN-LAST:event_AddbuttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,14 +198,14 @@ public class addGroup extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Addbutton;
-    private javax.swing.JComboBox<String> Projects;
+    private javax.swing.JTextField advisorInput;
     private javax.swing.JTextField groupNameinput;
     private javax.swing.JTextField groupnumberinput1;
-    private javax.swing.JTextField idInput;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField projectInput;
     private javax.swing.JLabel projectLabel;
     // End of variables declaration//GEN-END:variables
 }

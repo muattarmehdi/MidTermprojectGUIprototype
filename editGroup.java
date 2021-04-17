@@ -39,7 +39,6 @@ public class editGroup extends javax.swing.JFrame {
 
         jLabel2.setText("Enter the group number you want to edit");
 
-        groupNumbereditiInput.setText("jTextField1");
         groupNumbereditiInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupNumbereditiInputActionPerformed(evt);
@@ -61,15 +60,16 @@ public class editGroup extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(81, 81, 81)
-                        .addComponent(jLabel1))
+                        .addComponent(jLabel1)
+                        .addGap(0, 106, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(editButton)
                             .addComponent(jLabel2))
                         .addGap(42, 42, 42)
-                        .addComponent(groupNumbereditiInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                        .addComponent(groupNumbereditiInput)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +88,7 @@ public class editGroup extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void groupNumbereditiInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupNumbereditiInputActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_groupNumbereditiInputActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
